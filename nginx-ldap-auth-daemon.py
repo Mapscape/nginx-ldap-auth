@@ -7,7 +7,10 @@
 import sys, os, signal, base64, ldap, Cookie
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 
-Listen = ('localhost', 8888)
+# Default binding is to '' (all interfaces). To specifically
+# bind to an interface (e.g. localhost), set the environment
+# variable BIND_ADDRESS.
+Listen = (os.getenv('BIND_ADDRESS', ''), 8888)
 #Listen = "/tmp/auth.sock"    # Also uncomment lines in 'Requests are
                               # processed with UNIX sockets' section below
 
